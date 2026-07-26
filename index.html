@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Interview Response Toolkit | Fluentry-UK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Palette matched to the live Workplace Vocabulary Toolkit
+     (fluentryuk-ops.github.io): deep navy gradient header, gold accent,
+     pale blue-grey body, white cards. */
+  :root{
+    --page-surround:#F4F6F9;
+    --navy:#16233F;
+    --navy-deep:#0F1A30;
+    --navy-mid:#2C4F7C;
+    --gold:#D4A94A;
+    --paper:#F4F6F9;
+    --dont:#B23A3A;
+    --ink:#16233F;
+    --ink-soft:#55708C;
+    --line:#E1E7EE;
+    --card:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--page-surround);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .sheet{
+    max-width:640px;
+    margin:0 auto;
+    background:var(--paper);
+    min-height:100vh;
+  }
+  h1,h2,h3,.display{
+    font-family:'Poppins',sans-serif;
+    letter-spacing:-0.01em;
+    font-weight:700;
+  }
+  .eyebrow{
+    font-family:'Poppins',sans-serif;
+    font-size:0.72rem;
+    font-weight:600;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  .badge{
+    display:inline-block;
+    background:transparent;
+    border:1px solid var(--gold);
+    color:#fff;
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    font-size:0.72rem;
+    padding:0.3rem 0.75rem;
+    border-radius:100px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:linear-gradient(135deg,var(--navy) 0%, var(--navy-mid) 100%);
+    color:#EFE9DA;
+    padding:3rem 1.25rem 3.5rem;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute; left:0; right:0; bottom:0; height:56px;
+    background:
+      radial-gradient(circle at 22% 100%, transparent 12px, var(--navy) 13px) 0 0/44px 56px,
+      linear-gradient(var(--navy),var(--navy));
+    opacity:0.35;
+  }
+  .hero .eyebrow{color:var(--gold);}
+  .hero h1{
+    font-size:2rem;
+    line-height:1.15;
+    margin:0.6rem 0 0.75rem;
+    color:#fff;
+  }
+  .hero p{
+    max-width:34ch;
+    color:#C7D3DD;
+    font-size:0.98rem;
+    line-height:1.5;
+    margin:0;
+  }
+  .runway-strip{
+    margin-top:1.75rem;
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    color:var(--gold);
+  }
+  .runway-strip .dash{flex:1;height:1px;background:repeating-linear-gradient(90deg,var(--gold) 0 10px, transparent 10px 20px); opacity:0.55;}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+    overflow-x:auto;
+    white-space:nowrap;
+    padding:0 1rem;
+    -webkit-overflow-scrolling:touch;
+  }
+  nav a{
+    display:inline-block;
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    text-decoration:none;
+    padding:0.85rem 0.9rem;
+    border-bottom:3px solid transparent;
+    margin-bottom:-1px;
+  }
+  nav a.active{color:var(--navy); border-bottom-color:var(--gold);}
+  nav a:hover{color:var(--navy);}
+
+  main{max-width:640px; margin:0 auto; padding:0 1.1rem 4rem;}
+
+  section{padding-top:2.6rem;}
+  section > .eyebrow{margin-bottom:0.35rem;}
+  section h2{
+    font-size:1.4rem;
+    margin:0 0 1rem;
+    color:var(--navy);
+  }
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:1.1rem 1.15rem;
+    margin-bottom:0.85rem;
+  }
+  .card h3{
+    font-size:1rem;
+    margin:0 0 0.5rem;
+    color:var(--navy);
+  }
+  .card p{margin:0.3rem 0; line-height:1.5; font-size:0.94rem; color:var(--ink);}
+  .card .note{color:var(--ink-soft); font-size:0.85rem;}
+
+  /* ---------- PHRASE BANK ---------- */
+  .phrase{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:0.75rem;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:0.65rem 0.8rem;
+    margin-bottom:0.55rem;
+    cursor:pointer;
+  }
+  .phrase .txt{font-size:0.94rem; font-weight:500;}
+  .phrase .txt .fn{display:block; font-size:0.76rem; font-weight:400; font-style:italic; color:var(--ink-soft); margin-top:0.15rem;}
+  .play-btn{
+    flex:none;
+    width:34px; height:34px;
+    border-radius:50%;
+    border:1px solid var(--gold);
+    background:#fff;
+    color:var(--navy);
+    display:flex; align-items:center; justify-content:center;
+    font-size:0.85rem;
+  }
+  .play-btn.playing{background:var(--gold); color:var(--navy); border-color:var(--gold);}
+  .play-btn:disabled{opacity:0.35;}
+
+  /* ---------- TIMER (signature element) ---------- */
+  .runway-timer{
+    background:linear-gradient(135deg,var(--navy) 0%, var(--navy-mid) 100%);
+    border-radius:12px;
+    padding:1.3rem 1.15rem 1.15rem;
+    color:#EFE9DA;
+  }
+  .runway-timer .eyebrow{color:var(--gold);}
+  .runway-timer h3{color:#fff; margin:0.3rem 0 0.9rem; font-size:1.05rem;}
+  .track{
+    position:relative;
+    height:34px;
+    background:rgba(255,255,255,0.08);
+    border-radius:6px;
+    overflow:hidden;
+    margin-bottom:0.5rem;
+  }
+  .track .zone{position:absolute; top:0; bottom:0; background:rgba(212,169,74,0.18);}
+  .track .zone.good{left:50%; width:33.3%;}
+  .plane{
+    position:absolute; top:50%; left:0;
+    transform:translate(-2px,-50%);
+    font-size:1.1rem;
+    transition:left 0.2s linear;
+  }
+  .runway-labels{
+    display:flex; justify-content:space-between;
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:0.65rem; letter-spacing:0.04em; color:#B7C6D8; margin-bottom:1rem;
+  }
+  .timer-controls{display:flex; align-items:center; gap:0.75rem;}
+  .time-read{
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    font-size:1.5rem;
+    min-width:3.6ch;
+  }
+  .timer-btn{
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:0.85rem;
+    border:none;
+    border-radius:100px;
+    padding:0.55rem 1.1rem;
+    background:var(--gold);
+    color:var(--navy-deep);
+    cursor:pointer;
+  }
+  .timer-btn.reset{background:transparent; border:1px solid rgba(255,255,255,0.35); color:#EFE9DA;}
+  .timer-status{
+    font-size:0.8rem; margin-top:0.6rem; color:#C7D3DD; min-height:1.2em;
+  }
+
+  /* ---------- STAR BUILDER ---------- */
+  .star-field{margin-bottom:0.9rem;}
+  .star-field label{
+    display:block;
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:0.35rem;
+  }
+  .star-field textarea{
+    width:100%;
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:0.6rem 0.7rem;
+    font-family:'Inter',sans-serif;
+    font-size:0.94rem;
+    resize:vertical;
+    min-height:3rem;
+    background:#FBFCFD;
+  }
+  .star-field textarea:focus{outline:2px solid var(--gold); outline-offset:1px;}
+  .star-save-note{font-size:0.8rem; color:var(--ink-soft); margin-top:0.25rem;}
+
+  /* ---------- DO/DONT ---------- */
+  .dodont{display:grid; grid-template-columns:1fr 1fr; gap:0.6rem;}
+  .dodont .col h4{
+    font-size:0.78rem; text-transform:uppercase; letter-spacing:0.06em;
+    margin:0 0 0.5rem; font-family:'Poppins',sans-serif; font-weight:600;
+  }
+  .dodont .col.do h4{color:#2E6B4F;}
+  .dodont .col.dont h4{color:var(--dont);}
+  .dodont .col p{font-size:0.85rem; line-height:1.4; margin:0 0 0.7rem; color:var(--ink);}
+
+  /* checklist */
+  .checklist label{
+    display:flex; align-items:flex-start; gap:0.55rem;
+    font-size:0.94rem; margin-bottom:0.6rem; cursor:pointer;
+  }
+  .checklist input{margin-top:0.2rem; accent-color:var(--gold);}
+
+  footer{
+    text-align:center;
+    padding:2.5rem 1rem 3rem;
+    color:var(--ink-soft);
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    letter-spacing:0.06em;
+    font-size:0.72rem;
+    text-transform:uppercase;
+  }
+  audio{display:none;}
+
+  @media (prefers-reduced-motion:reduce){
+    .plane, .track *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<div class="hero">
+  <span class="eyebrow">Fluentry-UK · B1-B2</span>
+  <h1>Job Interview Response Toolkit</h1>
+  <p>Clear structure, calm delivery. Practise the frameworks out loud, time your answers, and hear how they should actually sound.</p>
+  <div class="runway-strip">TAKEOFF <div class="dash"></div> LANDING</div>
+</div>
+
+<nav>
+  <a href="#openers">1 · Openers</a>
+  <a href="#star">2 · STAR</a>
+  <a href="#timer">3 · Timing</a>
+  <a href="#achievements">4 · Achievements</a>
+  <a href="#softskills">5 · Soft skills</a>
+  <a href="#clarify">6 · Clarify</a>
+  <a href="#endings">7 · Endings</a>
+  <a href="#body">Body language</a>
+  <a href="#questions">Questions</a>
+  <a href="#notes">Notes</a>
+  <a href="#checklist">Checklist</a>
+</nav>
+
+<main>
+
+  <!-- FRAMEWORK 1 -->
+  <section id="openers">
+    <span class="eyebrow">Framework 1</span>
+    <h2>Strong answer openers</h2>
+    <p style="color:var(--ink-soft); margin-top:-0.5rem; margin-bottom:1rem; font-size:0.92rem;">
+      Interviewers aren't listening for perfect grammar — they're listening for clear thinking. Tap to hear each opener delivered at the right pace.
+    </p>
+
+    <div class="phrase" data-audio="audio/opener-thats-a-great-question-v1.mp3">
+      <div class="txt">“That's a great question.”<span class="fn">Polite acknowledgement — buys thinking time</span></div>
+      <button class="play-btn" aria-label="Play">▶</button>
+    </div>
+    <div class="phrase" data-audio="audio/opener-let-me-give-an-example-v1.mp3">
+      <div class="txt">“Let me give you a brief example.”<span class="fn">Example-led response — safe and clear</span></div>
+      <button class="play-btn" aria-label="Play">▶</button>
+    </div>
+    <div class="phrase" data-audio="audio/opener-recent-situation-v1.mp3">
+      <div class="txt">“I can explain that with a recent situation.”<span class="fn">Experience-based — strong for behavioural questions</span></div>
+      <button class="play-btn" aria-label="Play">▶</button>
+    </div>
+    <div class="phrase" data-audio="audio/opener-two-main-points-v1.mp3">
+      <div class="txt">“There are two main points I'd like to mention.”<span class="fn">Structured answer — signals confidence</span></div>
+      <button class="play-btn" aria-label="Play">▶</button>
+    </div>
+
+    <div class="card">
+      <div class="dodont">
+        <div class="col dont">
+          <h4>✗ Common mistake</h4>
+          <p>“Yes… I worked on a project and it was good.”</p>
+        </div>
+        <div class="col do">
+          <h4>✓ Better</h4>
+          <p>“That's a great question. Let me give you a brief example.”</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Try it yourself</h3>
+      <div class="star-field">
+        <label>Your usual first sentence</label>
+        <textarea placeholder="What you'd normally say first..."></textarea>
+      </div>
+      <div class="star-field">
+        <label>Rewrite it using a calm opener</label>
+        <textarea placeholder="That's a great question. Let me..."></textarea>
+      </div>
+      <p class="note">Starting calmly helps your brain organise the answer.</p>
+    </div>
+  </section>
+
+  <!-- FRAMEWORK 2 -->
+  <section id="star">
+    <span class="eyebrow">Framework 2</span>
+    <h2>The STAR structure</h2>
+    <div class="card">
+      <p class="note">Write your own answer in your own words below. Aim for 1-2 sentences per box — this stays on your screen only, for this session.</p>
+    </div>
+    <div class="card">
+      <div class="star-field">
+        <label>Situation — what was happening</label>
+        <textarea placeholder="At the time, the situation was..."></textarea>
+      </div>
+      <div class="star-field">
+        <label>Task — what you needed to do</label>
+        <textarea placeholder="My responsibility was to..."></textarea>
+      </div>
+      <div class="star-field">
+        <label>Action — what you did</label>
+        <textarea placeholder="What I did was..."></textarea>
+      </div>
+      <div class="star-field">
+        <label>Result — what happened</label>
+        <textarea placeholder="As a result..."></textarea>
+      </div>
+      <p class="star-save-note">Not saved between visits — copy this out once you're happy with it.</p>
+    </div>
+
+    <h3 style="margin-top:1.4rem;">Hear a full model answer</h3>
+    <div class="phrase" data-audio="audio/tell-me-about-yourself-v1.mp3">
+      <div class="txt">“Tell me about yourself”<span class="fn">Take 1 — Framework 1 opener + full STAR answer</span></div>
+      <button class="play-btn" aria-label="Play">▶</button>
+    </div>
+    <div class="phrase" data-audio="audio/tell-me-about-yourself-v2.mp3">
+      <div class="txt">“Tell me about yourself”<span class="fn">Take 2 — extra delivery tips</span></div>
+      <button class="play-btn" aria-label="Play">▶</button>
+    </div>
+    <div class="phrase" data-audio="audio/tell-me-about-yourself-v3.mp3">
+      <div class="txt">“Tell me about yourself”<span class="fn">Take 3 — extra delivery tips</span></div>
+      <button class="play-btn" aria-label="Play">▶</button>
+    </div>
+    <div class="phrase" data-audio="audio/describe-a-difficult-problem-v1.mp3">
+      <div class="txt">“Describe a time you solved a difficult problem”<span class="fn">Full STAR answer, natural pace</span></div>
+      <button class="play-btn" aria-label="Play">▶</button>
+    </div>
+    <div class="phrase" data-audio="audio/handle-conflict-v1.mp3">
+      <div class="txt">“Describe a time you handled conflict”<span class="fn">Full STAR answer, natural pace</span></div>
+      <button class="play-btn" aria-label="Play">▶</button>
+    </div>
+  </section>
+
+  <!-- FRAMEWORK 3 / TIMER -->
+  <section id="timer">
+    <span class="eyebrow">Framework 3</span>
+    <h2>Keeping answers short &amp; clear</h2>
+    <p style="color:var(--ink-soft); margin-top:-0.5rem; margin-bottom:1rem; font-size:0.92rem;">
+      Ideal answer length: 30-60 seconds. Land the plane before the interviewer has to ask you to.
+    </p>
+    <div class="runway-timer">
+      <span class="eyebrow">Practice timer</span>
+      <h3>Time your answer</h3>
+      <div class="track">
+        <div class="zone good"></div>
+        <div class="plane" id="plane">✈️</div>
+      </div>
+      <div class="runway-labels"><span>0s</span><span>30s good zone</span><span>60s</span><span>90s+ too long</span></div>
+      <div class="timer-controls">
+        <span class="time-read" id="timeRead">0:00</span>
+        <button class="timer-btn" id="timerToggle">Start</button>
+        <button class="timer-btn reset" id="timerReset">Reset</button>
+      </div>
+      <div class="timer-status" id="timerStatus"></div>
+    </div>
+
+    <div class="card">
+      <h3>Signpost phrases</h3>
+      <p>“I'll keep this brief.”</p>
+      <p>“The key point is…”</p>
+      <p>“To summarise…”</p>
+      <h3 style="margin-top:0.9rem;">Closing phrases</h3>
+      <p>“That was the main outcome.”</p>
+      <p>“That's a quick overview.”</p>
+      <h3 style="margin-top:0.9rem;">If the interviewer interrupts you</h3>
+      <p>“Of course — the key point is…”</p>
+      <p>“To summarise quickly…”</p>
+    </div>
+
+    <div class="card">
+      <p class="note">One reflection question: did you stop before the interviewer stopped you?</p>
+    </div>
+
+    <div class="card">
+      <h3>Remember</h3>
+      <p>Soft skills are the personal and interpersonal abilities that shape how you work and interact with others. They include communication, teamwork, emotional intelligence, adaptability, and problem-solving.</p>
+      <p>In the workplace, soft skills often matter just as much as technical knowledge, because they influence how effectively you collaborate and lead.</p>
+    </div>
+  </section>
+
+  <!-- FRAMEWORK 4 -->
+  <section id="achievements">
+    <span class="eyebrow">Framework 4</span>
+    <h2>Talking about achievements</h2>
+    <div class="card">
+      <h3>Upgrade your language</h3>
+      <p>“I helped” → “I contributed to…”</p>
+      <p>“I tried to” → “I focused on…”</p>
+      <p>“I was responsible for” → “I led / managed / supported…”</p>
+    </div>
+    <div class="card">
+      <h3>Results sentence starter</h3>
+      <p>“This resulted in…” — refer to numbers, speed, quality, or feedback.</p>
+    </div>
+  </section>
+
+  <!-- FRAMEWORK 5 -->
+  <section id="softskills">
+    <span class="eyebrow">Framework 5</span>
+    <h2>Important soft skills</h2>
+    <div class="card">
+      <h3>Communication</h3>
+      <p>“I summarised the key points at the end of the call to avoid misunderstandings.”</p>
+    </div>
+    <div class="card">
+      <h3>Problem-solving</h3>
+      <p>“When the deadline changed, I proposed an adjusted timeline instead of escalating the issue.”</p>
+    </div>
+    <div class="card">
+      <h3>Emotional intelligence</h3>
+      <p>“I noticed the client's tone shift and clarified expectations before tension escalated.”</p>
+    </div>
+    <div class="card">
+      <h3>Adaptability</h3>
+      <p>“I adjusted my communication style when working with a more direct UK team.”</p>
+    </div>
+    <div class="card">
+      <h3>Ownership</h3>
+      <p>“I followed up proactively rather than waiting for instructions.”</p>
+    </div>
+    <div class="card">
+      <h3>Professional clarity</h3>
+      <p>“I rephrased my email to sound collaborative rather than abrupt.”</p>
+    </div>
+
+    <div class="card">
+      <p class="note">Think of soft skills within your current role that are transferable to the position you're applying for — how would this be valuable?</p>
+      <div class="star-field" style="margin-top:0.6rem;">
+        <label>An example of a soft skill you've demonstrated</label>
+        <textarea placeholder="Write your own example here..."></textarea>
+      </div>
+    </div>
+  </section>
+
+  <!-- FRAMEWORK 6 -->
+  <section id="clarify">
+    <span class="eyebrow">Framework 6</span>
+    <h2>When you don't understand the question</h2>
+    <div class="phrase" data-audio="audio/clarify-what-do-you-mean-v1.mp3">
+      <div class="txt">“Could you clarify what you mean by…?”</div>
+      <button class="play-btn" aria-label="Play">▶</button>
+    </div>
+    <div class="phrase" data-audio="audio/clarify-example-from-role.mp3">
+      <div class="txt">“Would you like an example from my previous role?”</div>
+      <button class="play-btn" aria-label="Play">▶</button>
+    </div>
+    <div class="phrase" data-audio="audio/clarify-just-to-make-sure-v1.mp3">
+      <div class="txt">“Just to make sure I understand the question…”</div>
+      <button class="play-btn" aria-label="Play">▶</button>
+    </div>
+
+    <div class="card">
+      <h3>Interviewers expect clarification</h3>
+      <p>Staying silent is riskier than asking.</p>
+      <p>“If I've understood correctly…”</p>
+      <p>“Just to ensure I've understood the question correctly…”</p>
+      <p>“May I confirm my understanding before I answer?”</p>
+    </div>
+
+    <div class="card">
+      <p class="note">Asking for clarification shows professionalism, not weakness. Native speakers ask too — one rule: clarify early, not after a long pause. Slow down your pace, ask for clarification if needed, and structure your response. Composure is often more impressive than speed.</p>
+    </div>
+  </section>
+
+  <!-- FRAMEWORK 7 -->
+  <section id="endings">
+    <span class="eyebrow">Framework 7</span>
+    <h2>Confident endings</h2>
+    <div class="phrase" data-audio="audio/ending-prepared-me-well-v1.mp3">
+      <div class="txt">“That experience prepared me well for this role.”</div>
+      <button class="play-btn" aria-label="Play">▶</button>
+    </div>
+    <div class="phrase" data-audio="audio/ending-confident-in-ability-v1.mp3">
+      <div class="txt">“This is why I'm confident in my ability to…”</div>
+      <button class="play-btn" aria-label="Play">▶</button>
+    </div>
+    <div class="card"><p class="note">Always land the plane. Tailor the last line to the role: “…which is why this role interests me.”</p></div>
+  </section>
+
+  <!-- INTERVIEW QUESTIONS BANK -->
+  <section id="questions">
+    <span class="eyebrow">Bonus</span>
+    <h2>Common interview questions</h2>
+    <p style="color:var(--ink-soft); margin-top:-0.5rem; margin-bottom:1rem; font-size:0.92rem;">
+      Why employers ask each one, so you can prepare the right kind of answer.
+    </p>
+
+    <div class="card">
+      <h3>Core questions</h3>
+      <p><strong>Tell me about yourself</strong> — gauges your background and communication style.</p>
+      <p><strong>Why do you want to work here / this role?</strong> — tests if you researched the company.</p>
+      <p><strong>What are your greatest strengths/weaknesses?</strong> — evaluates self-awareness and improvement.</p>
+      <p><strong>Why are you leaving your job?</strong> — assesses motivation.</p>
+      <p><strong>Why should we hire you?</strong> — your unique value proposition.</p>
+      <p><strong>What are your salary expectations?</strong> — determines budget alignment.</p>
+    </div>
+
+    <div class="card">
+      <h3>Behavioural &amp; situational</h3>
+      <p><strong>Tell me about a time you solved a difficult problem</strong> — tests critical thinking.</p>
+      <p><strong>Tell me about a time you failed or made a mistake</strong> — evaluates emotional maturity and learning.</p>
+      <p><strong>Describe a time you handled conflict with a manager</strong> — tests teamwork and communication.</p>
+      <p><strong>How do you handle stress or tight deadlines?</strong> — assesses resilience.</p>
+      <p><strong>Tell me about a time you led a team</strong> — evaluates leadership capability.</p>
+    </div>
+
+    <div class="card">
+      <h3>Forward-looking &amp; cultural fit</h3>
+      <p><strong>Where do you see yourself in five years?</strong> — gauges ambition and stability.</p>
+      <p><strong>What do you know about our company?</strong> — checks research and genuine interest.</p>
+      <p><strong>What would you do in your first 30 days?</strong> — shows initiative and planning.</p>
+      <p><strong>Do you have any questions for us?</strong> — a critical, final question assessing your engagement.</p>
+    </div>
+
+    <div class="card">
+      <h3>Preparation tips</h3>
+      <p>✓ Use the STAR method to structure behavioural answers.</p>
+      <p>✓ Research the company's culture, products, and recent news.</p>
+      <p>✓ Prepare questions about team culture, challenges, or company growth.</p>
+    </div>
+  </section>
+
+  <!-- BODY LANGUAGE -->
+  <section id="body">
+    <span class="eyebrow">Bonus</span>
+    <h2>Interview body language</h2>
+    <div class="card">
+      <div class="dodont">
+        <div class="col do">
+          <h4>Do</h4>
+          <p>Sit upright, shoulders relaxed</p>
+          <p>Make eye contact when speaking and listening</p>
+          <p>Nod lightly to show understanding</p>
+          <p>Keep hands visible, movements calm</p>
+          <p>Smile briefly at the start and end of answers</p>
+        </div>
+        <div class="col dont">
+          <h4>Don't</h4>
+          <p>Look down or away while answering</p>
+          <p>Fidget with pens, clothing, the table</p>
+          <p>Cross your arms</p>
+          <p>Rush your answers</p>
+          <p>Apologise for your English</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERSONAL NOTES -->
+  <section id="notes">
+    <span class="eyebrow">Personal practice</span>
+    <h2>Personal notes</h2>
+    <div class="card">
+      <div class="star-field">
+        <label>My most difficult interview question</label>
+        <textarea placeholder="Write it here..."></textarea>
+      </div>
+      <div class="star-field">
+        <label>Framework that helps me most</label>
+        <textarea placeholder="e.g. Framework 2 — STAR"></textarea>
+      </div>
+      <div class="star-field">
+        <label>One sentence I will reuse</label>
+        <textarea placeholder="Write it here..."></textarea>
+      </div>
+      <p class="star-save-note">Not saved between visits — copy this out once you're happy with it.</p>
+    </div>
+  </section>
+
+  <!-- CHECKLIST -->
+  <section id="checklist">
+    <span class="eyebrow">Final reminder</span>
+    <h2>Before you walk in</h2>
+    <div class="card">
+      <p>You don't need perfect English. You need clear structure and calm delivery.</p>
+    </div>
+    <div class="card">
+      <h3>Match your question to your framework</h3>
+      <p>“Tell me about yourself” → Framework 1 + STAR</p>
+      <p>“Describe a challenge” → STAR</p>
+      <p>“What are your strengths?” → Achievements + Confident Ending</p>
+    </div>
+    <div class="card checklist">
+      <label><input type="checkbox"> My opener framework chosen</label>
+      <label><input type="checkbox"> My main structure (STAR) practised aloud</label>
+      <label><input type="checkbox"> My ending line ready</label>
+      <label><input type="checkbox"> Timed at least one answer in the 30-60s zone</label>
+      <label><input type="checkbox"> Listened to a model answer</label>
+    </div>
+    <p style="text-align:center; color:var(--ink-soft); font-size:0.85rem;">💬 Practise these aloud — not silently.</p>
+  </section>
+
+</main>
+
+<footer>FLUENTRY-UK · Clear. Practical. British English.</footer>
+
+</div>
+
+<script>
+  // ---- Phrase / model-answer audio ----
+  let currentAudio = null;
+  let currentBtn = null;
+
+  document.querySelectorAll('.phrase').forEach(function(el){
+    var btn = el.querySelector('.play-btn');
+    var src = el.getAttribute('data-audio');
+    var audio = new Audio(src);
+    audio.preload = 'none';
+
+    function stopCurrent(){
+      if(currentAudio){
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+        if(currentBtn){ currentBtn.textContent = '▶'; currentBtn.classList.remove('playing'); }
+      }
+    }
+
+    function playThis(){
+      if(currentAudio === audio && !audio.paused){
+        stopCurrent();
+        currentAudio = null; currentBtn = null;
+        return;
+      }
+      stopCurrent();
+      audio.currentTime = 0;
+      audio.play().catch(function(){
+        btn.textContent = '⚠';
+        setTimeout(function(){ btn.textContent = '▶'; }, 1200);
+      });
+      btn.textContent = '❚❚';
+      btn.classList.add('playing');
+      currentAudio = audio; currentBtn = btn;
+    }
+
+    audio.addEventListener('ended', function(){
+      btn.textContent = '▶'; btn.classList.remove('playing');
+      currentAudio = null; currentBtn = null;
+    });
+
+    el.addEventListener('click', playThis);
+  });
+
+  // ---- Runway timer ----
+  var running = false, elapsed = 0, tick;
+  var plane = document.getElementById('plane');
+  var timeRead = document.getElementById('timeRead');
+  var toggle = document.getElementById('timerToggle');
+  var resetBtn = document.getElementById('timerReset');
+  var status = document.getElementById('timerStatus');
+  var track = document.querySelector('.track');
+
+  function render(){
+    var m = Math.floor(elapsed/60), s = elapsed%60;
+    timeRead.textContent = m + ':' + (s<10?'0':'') + s;
+    var pct = Math.min(elapsed/90, 1) * 100;
+    var trackWidth = track.clientWidth;
+    plane.style.left = Math.min(pct, 98) + '%';
+    if(elapsed < 30){ status.textContent = 'Taking off — keep going.'; }
+    else if(elapsed <= 60){ status.textContent = 'In the good zone.'; }
+    else if(elapsed <= 90){ status.textContent = 'Running long — start landing the plane.'; }
+    else { status.textContent = 'Overshot the runway — wrap it up.'; }
+  }
+
+  toggle.addEventListener('click', function(){
+    running = !running;
+    toggle.textContent = running ? 'Pause' : 'Start';
+    if(running){
+      tick = setInterval(function(){ elapsed++; render(); }, 1000);
+    } else {
+      clearInterval(tick);
+    }
+  });
+
+  resetBtn.addEventListener('click', function(){
+    running = false; elapsed = 0;
+    clearInterval(tick);
+    toggle.textContent = 'Start';
+    status.textContent = '';
+    render();
+  });
+
+  render();
+
+  // ---- Nav scroll-spy (active tab underline) ----
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('nav a'));
+  var spied = navLinks.map(function(a){ return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+
+  function setActive(id){
+    navLinks.forEach(function(a){
+      a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+    });
+    var activeLink = document.querySelector('nav a.active');
+    if(activeLink){ activeLink.scrollIntoView({block:'nearest', inline:'center', behavior:'smooth'}); }
+  }
+
+  if('IntersectionObserver' in window){
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){ setActive(entry.target.id); }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    spied.forEach(function(sec){ observer.observe(sec); });
+  }
+  if(navLinks[0]) navLinks[0].classList.add('active');
+</script>
+
+</body>
+</html>
